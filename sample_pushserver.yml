@@ -1,0 +1,40 @@
+redis:
+  url: redis://localhost:6379/2
+
+authentication:
+  servers:
+    -
+      name: 123 #replace with yours
+      password: 123 #replace with yours
+gcm:
+  xmpp: false
+  apiKey: #AIza---------------- #dd
+  senderId: #projectnumber of your project in google developer #dd
+  redphoneApiKey: # the values after the name and - of your project id eg : for yourappname-desd4f333 it is def333 #dd
+
+
+apn:
+  feedback: false
+  pushKey: /path/to/your/apnpushcertificates/apns-dev-key-noenc.pem #replace with yours
+  voipKey: /path/to/your/apnpushcertificates/apns-dev-key-noenc.pem #replace with yours
+  voipCertificate: /path/to/your/apnpushcertificates/apns-dev-cert.pem #replace with yours
+  pushCertificate: /path/to/your/apnpushcertificates/apns-dev-cert.pem #replace with yours
+
+server:
+    applicationConnectors:
+    - type: http
+      port: 9090
+    adminConnectors:
+    - type: http
+      port: 9091
+    gzip:
+        enabled: true
+
+logging:
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: /tmp/pushserver.log
+      archivedLogFilenamePattern: /tmp/pushserver-%d.log.gz
+      archivedFileCount: 5
+    - type: console
